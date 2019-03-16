@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
-  
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @posts = Post.all.order("created_at desc")
   end
@@ -26,6 +28,12 @@ class PostsController < ApplicationController
   end
 
   def update
+    if @post.update(post_params)
+      flash[:success] = "Post updated successfully."
+      redirect_to post_path(@post)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -35,5 +43,9 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:title, :content)
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 end

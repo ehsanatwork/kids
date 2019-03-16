@@ -12,12 +12,9 @@
   
   <body>
     <%= render  "shared/navbar" %>
-    <div class="notice">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    </div>
-
-    <div class="container">
+    <div class="container pt-5 mt-5">
+      <%= render  "layouts/messages" %>
+      
       <%= yield %>
     </div>
     

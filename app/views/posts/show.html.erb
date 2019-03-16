@@ -1,0 +1,15 @@
+<div class="row py-5">
+  <div class="col-md-8 offset-md-2">
+    <div class="card">
+      <img class="card-img-top" src="https://placeimg.com/1200/400/any" alt="">
+      <div class="card-body">
+        <h4 class="card-title"><%= @post.title %></h4>
+        <p class="card-text"><%= sanitize (@post.content) %></p>
+      </div>
+      <div class="card-footer">
+        <%= link_to  "Edit", edit_post_path(@post), class: 'btn btn-outline-primary btn-sm' %>
+        <%= link_to  "Cancle", posts_path, class: 'btn btn-outline-warning btn-sm' %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -23,7 +23,8 @@
               <p class="mb-0">Post last Modified: 1st march 2019</p>
             </div>
             <div class="card-footer">
-              <%= f.submit :Publish, class: 'btn btn-outline-primary' %>
+              <%= f.submit(@post.new_record? ? "Publish" : "Update", class: 'btn btn-outline-primary btn-sm') %>
+              <%= link_to "Cancle", post_path(@post), class: 'btn btn-outline-warning btn-sm' %>
             </div>
           </div>
         </div>
