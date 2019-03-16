@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark grbg1">
   <div class="container">
     <%= link_to  "Kids Zone", root_path, class: 'navbar-brand' %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -6,30 +6,37 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <form class="form-inline my-2 my-lg-0 mr-auto w-75 d-flex justify-content-center">
+      <form class="form-inline my-2 my-lg-0 mr-auto w-50 d-flex justify-content-center">
         <input class="form-control mr-sm-2 w-75" type="text" placeholder="Search">
         <button class="btn btn-danger my-2 my-sm-0" type="submit">Search</button>
       </form>
       <ul class="navbar-nav mt-2 mt-lg-0">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <%= link_to  "Blog", posts_path, class: 'nav-link' %>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+        <li class="nav-item active">
+          <%= link_to  "Contact", contact_path, class: 'nav-link' %>
         </li>
+        <% if !signed_in? %>
+          <li class="nav-item active">
+            <%= link_to  "Sign In", new_user_session_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to  "Sign Up", new_user_registration_path, class: 'nav-link' %>
+          </li>
+        <% end %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
+            Profile
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
+            <% if signed_in? %>
+              <%= link_to  "Sign Out", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+            <% end %>
             <a class="dropdown-item" href="#">Another action</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
       </ul>
     </div>
