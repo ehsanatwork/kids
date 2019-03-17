@@ -6,10 +6,12 @@
         <h4 class="card-title"><%= @post.title %></h4>
         <p class="card-text"><%= sanitize (@post.content) %></p>
       </div>
-      <div class="card-footer">
-        <%= link_to  "Edit", edit_post_path(@post), class: 'btn btn-outline-primary btn-sm' %>
-        <%= link_to  "Cancle", posts_path, class: 'btn btn-outline-warning btn-sm' %>
-      </div>
+      <% if user_signed_in? && current_user.id == @post.user_id %>
+        <div class="card-footer">
+          <%= link_to  "Edit", edit_post_path(@post), class: 'btn btn-outline-primary btn-sm' %>
+          <%= link_to  "Cancle", posts_path, class: 'btn btn-outline-warning btn-sm' %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
