@@ -26,6 +26,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'trix-rails', require: 'trix'
+gem 'will_paginate-bootstrap4'
 #--------------------------
 
 

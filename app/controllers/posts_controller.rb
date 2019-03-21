@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :required_post_user!, only: [:edit, :update, :destroy]
 
   def index
-    @posts = Post.all.order("created_at desc")
+    @posts = Post.paginate(page: params[:page], per_page: 3).order('id DESC')
   end
 
   def new
