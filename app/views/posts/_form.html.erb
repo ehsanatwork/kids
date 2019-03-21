@@ -37,7 +37,7 @@
               <div class="custom-control custom-checkbox pl-0">
                 <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |b| %>
                   <div>
-                  <%= link_to b.label(:"data-value" => b.value) { b.check_box + b.text } %>
+                  <%= b.label(:"data-value" => b.value) { b.check_box + b.text } %>
                   </div>
                 <% end %>
                 <%# <input type="checkbox" class="custom-control-input" id="customControlInline">
