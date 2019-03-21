@@ -25,6 +25,18 @@
               <span class="text-muted">
                 By - <%= post.user.email[/[^@]+/]  %>
               </span>
+              <span> | </span>
+              <span class="text-muted">
+                On - 
+                <% unless post.categories.blank? %>
+                  <% post.categories.each do |catpost|  %>
+                    <%= link_to catpost.name, catpost %>
+                    <%= "," unless catpost == post.categories.last %>
+                  <% end %>
+                <% else %>
+                  <%= "No Categories Available" %>
+                <% end %>
+              </span>
             </footer>
           </div>
         </div>

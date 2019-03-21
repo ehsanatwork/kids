@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   get 'blog', to: 'posts#index'
   resources :posts
 

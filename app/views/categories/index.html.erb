@@ -1,0 +1,36 @@
+<div class="row py-4">
+  <div class="col-md-12">
+    <div class="row mb-3">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="float-left">All Categories</h2>
+            <% if user_signed_in? %>
+              <%= link_to  "Create New Category", new_category_path, class: 'btn btn-success btn-lg float-right' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <% @categories.each do |category| %>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title"><%= category.name %></h4>
+          </div>
+          <div class="card-body">
+              <p class="card-text"><%= truncate sanitize(category.body, tags: [], attributes: []), length: 50 %></p>
+          </div>
+          <% if user_signed_in? %>
+          <div class="card-footer">
+            <%= link_to  "View", category_path(category), class: 'card-link' %>
+            <%= link_to  "Edit", edit_category_path(category), class: 'card-link' %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

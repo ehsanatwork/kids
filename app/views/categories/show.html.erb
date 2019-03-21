@@ -1,0 +1,18 @@
+<div class="row py-5">
+  <div class="col-md-8 offset-md-2">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title"><%= @category.name %></h4>
+        <p class="card-text"><%= sanitize(@category.body) %></p>
+      </div>
+      <div class="card-footer">
+        <% if user_signed_in? %>
+          <%= link_to  "Edit", edit_category_path(@category), class: 'btn btn-outline-primary btn-sm' %>
+          <%= link_to  "Cancle", categories_path, class: 'btn btn-outline-warning btn-sm' %>
+        <% else %>
+          <%= link_to  "All Categories", categories_path, class: 'btn btn-outline-danger btn-sm' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
