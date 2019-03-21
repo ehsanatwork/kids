@@ -17,7 +17,7 @@
         <li class="nav-item active">
           <%= link_to  "Contact", contact_path, class: 'nav-link' %>
         </li>
-        <% if !signed_in? %>
+        <% if !user_signed_in? %>
           <li class="nav-item active">
             <%= link_to  "Sign In", new_user_session_path, class: 'nav-link' %>
           </li>
@@ -29,7 +29,7 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Profile
           </a>
-          <% if signed_in? %>
+          <% if user_signed_in? %>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to  "Sign Out", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
               <div class="dropdown-divider"></div>

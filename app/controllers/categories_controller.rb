@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :set_cat, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :is_admin?, only: [:edit, :destroy]
   def index
     @categories = Category.all
   end
@@ -47,6 +48,13 @@ class CategoriesController < ApplicationController
   
   def set_cat
     @category = Category.find(params[:id])
+  end
+
+  def is_admin?
+    unless current_user.admin?
+      flash[:danger] = "You are not authorized to perform this action!"
+      redirect_to posts_path
+    end
   end
   
 end
