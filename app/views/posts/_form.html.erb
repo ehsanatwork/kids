@@ -24,7 +24,9 @@
             </div>
             <div class="card-footer">
               <%= f.submit(@post.new_record? ? "Publish" : "Update", class: 'btn btn-outline-primary btn-sm') %>
-              <%= link_to "Cancle", post_path(@post), class: 'btn btn-outline-warning btn-sm' %>
+              <% unless @post.new_record? %>
+                <%= link_to "Cancle", post_path(@post), class: 'btn btn-outline-warning btn-sm' %>
+              <% end %>
             </div>
           </div>
         </div>

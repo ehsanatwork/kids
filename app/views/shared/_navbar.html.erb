@@ -29,14 +29,13 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Profile
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <% if signed_in? %>
+          <% if signed_in? %>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to  "Sign Out", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
-            <% end %>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
+              <div class="dropdown-divider"></div>
+              <%= link_to  "New Post", new_post_path, class: 'dropdown-item' %>
+            </div>
+          <% end %>
         </li>
       </ul>
     </div>
