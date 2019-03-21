@@ -22,12 +22,12 @@
           <div class="card-body">
               <p class="card-text"><%= truncate sanitize(category.body, tags: [], attributes: []), length: 50 %></p>
           </div>
-          <% if user_signed_in? %>
           <div class="card-footer">
             <%= link_to  "View", category_path(category), class: 'card-link' %>
-            <%= link_to  "Edit", edit_category_path(category), class: 'card-link' %>
+            <% if user_signed_in? && current_user.admin? %>
+              <%= link_to  "Edit", edit_category_path(category), class: 'card-link' %>
+            <% end %>
           </div>
-          <% end %>
         </div>
       </div>
       <% end %>
