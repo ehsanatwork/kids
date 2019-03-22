@@ -10,3 +10,8 @@ body { font-family: 'PT Sans', sans-serif; background-color: #eee; }
   background: linear-gradient(to right, #ff6a00, #ee0979); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .trix-content{ background-color: #FFF; }
+
+.article img {
+  width: 100%;
+  height: auto;
+}
