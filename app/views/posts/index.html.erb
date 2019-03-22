@@ -4,7 +4,11 @@
     <article class="bg-white mb-2">
       <div class="row">
         <div class="col-md-3">
-          <img src="https://placeimg.com/640/480/any" class="img-fluid">
+          <% if post.thumbnail.attached? %>
+            <%= image_tag post.thumbnail, class: 'card-img-top img-fluid' %>
+          <% else %>
+            <%= image_tag "image_not_available", class: 'card-img-top img-fluid' %>
+          <% end %>
         </div>
         <div class="col-md-9">
           <div class="p-2">

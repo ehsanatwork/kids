@@ -1,7 +1,11 @@
 <div class="row py-5">
   <div class="col-md-8 offset-md-2">
     <div class="card">
-      <img class="card-img-top" src="https://placeimg.com/1200/400/any" alt="">
+      <% if @post.thumbnail.attached? %>
+        <%= image_tag @post.thumbnail, class: 'card-img-top img-fluid' %>
+      <% else %>
+        <img class="card-img-top" src="https://placeimg.com/1200/400/any" alt="">
+      <% end %>
       <div class="card-body">
         <h4 class="card-title"><%= @post.title %></h4>
         <p class="card-text"><%= sanitize (@post.content) %></p>
