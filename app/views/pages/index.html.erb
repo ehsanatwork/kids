@@ -11,69 +11,26 @@
 </div>
 
 <div class="row mb-5">
-  <div class="col-md-4">
-    <div class="card grbg1">
-      <div class="card-header">
-        <h4 class="card-title mb-0"><a href="#" class="text-white">History</a></h4>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <a href="#">Alexander the Great - Greek leader who conquered western Asia and northeast Africa.</a>
-        </li>
-        <li class="list-group-item">
-          <a href="#">Augustus - The first Emperor of Rome.</a>
-        </li>
-        <li class="list-group-item">
-          <a href="#">Napoleon Bonaparte - French military leader who became Emperor of the French.</a>
-        </li>
-      </ul>
-      <div class="card-header">
-        <a href="#" class="float-right text-white">View All</a>
-      </div>
-    </div>
-  </div>
   
+  <% @featured_categories.each do |fetcat| %>
   <div class="col-md-4">
     <div class="card grbg1">
       <div class="card-header">
-        <h4 class="card-title mb-0"><a href="#" class="text-white">Technology</a></h4>
+        <h4 class="card-title mb-0"><a href="#" class="text-white"><%= fetcat.name %></a></h4>
       </div>
       <ul class="list-group list-group-flush">
+      <% fetcat.posts.last(3).each do |p| %>
         <li class="list-group-item">
-          <a href="#">Alexander the Great - Greek leader who conquered western Asia and northeast Africa.</a>
+          <%= link_to truncate(p.title, length: 40), post_path(p) %>
         </li>
-        <li class="list-group-item">
-          <a href="#">Augustus - The first Emperor of Rome.</a>
-        </li>
-        <li class="list-group-item">
-          <a href="#">Napoleon Bonaparte - French military leader who became Emperor of the French.</a>
-        </li>
+      <% end %>
       </ul>
       <div class="card-header">
         <a href="#" class="float-right text-white">View All</a>
       </div>
     </div>
   </div>
+  <% end %>
 
-  <div class="col-md-4">
-    <div class="card grbg1">
-      <div class="card-header">
-        <h4 class="card-title mb-0"><a href="#" class="text-white">Magic Math</a></h4>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <a href="#">Alexander the Great - Greek leader who conquered western Asia and northeast Africa.</a>
-        </li>
-        <li class="list-group-item">
-          <a href="#">Augustus - The first Emperor of Rome.</a>
-        </li>
-        <li class="list-group-item">
-          <a href="#">Napoleon Bonaparte - French military leader who became Emperor of the French.</a>
-        </li>
-      </ul>
-      <div class="card-header">
-        <a href="#" class="float-right text-white">View All</a>
-      </div>
-    </div>
-  </div>
+
 </div>

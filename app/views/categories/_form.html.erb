@@ -17,6 +17,19 @@
     <div class="col-md-4">
       <div class="form-group row">
         <div class="col-sm-10">
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="card-title mb-0">
+                <p class="mb-0">Check the box if you want to show this categories post on front page.</p>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="form-group form-check mb-0">
+                <%= f.check_box :featured, class: 'form-check-input' %>
+                <%= f.label :featured, class: 'form-check-label' %>
+              </div>
+            </div>
+          </div>
           <div class="card">
             <div class="card-footer">
               <%= f.submit(@category.new_record? ? "Publish" : "Update", class: 'btn btn-outline-primary btn-sm') %>

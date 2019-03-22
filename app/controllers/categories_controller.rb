@@ -44,7 +44,7 @@ class CategoriesController < ApplicationController
   
   private
   def cat_params
-    params.require(:category).permit(:name, :body)
+    params.require(:category).permit(:name, :body, :featured)
   end
   
   def set_cat
