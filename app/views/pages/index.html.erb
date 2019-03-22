@@ -14,21 +14,21 @@
   
   <% @featured_categories.each do |fetcat| %>
   <div class="col-md-4">
-    <div class="card grbg1">
+    <div class="card">
       <div class="card-header">
         <h4 class="card-title mb-0">
-          <%= link_to fetcat.name, category_path(fetcat), class: 'text-white' %>
+          <%= link_to fetcat.name, category_path(fetcat) %>
         </h4>
       </div>
       <ul class="list-group list-group-flush">
       <% fetcat.posts.last(3).each do |p| %>
         <li class="list-group-item">
-          <%= link_to truncate(p.title, length: 40), post_path(p) %>
+          <%= link_to truncate(p.title, length: 40), post_path(p), class: 'text-muted' %>
         </li>
       <% end %>
       </ul>
-      <div class="card-header">
-        <a href="#" class="float-right text-white">View All</a>
+      <div class="card-footer">
+        <%= link_to  "View All Posts", category_path(fetcat), class: 'float-right text-muted' %>
       </div>
     </div>
   </div>

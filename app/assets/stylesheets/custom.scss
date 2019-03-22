@@ -2,6 +2,14 @@
 @import url('https://fonts.googleapis.com/css?family=Henny+Penny|PT+Sans');
 
 body { font-family: 'PT Sans', sans-serif; background-color: #eee; }
+
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+
 .heading { font-family: 'Henny Penny', cursive; }
 
 .grbg1{
@@ -15,3 +23,5 @@ body { font-family: 'PT Sans', sans-serif; background-color: #eee; }
   width: 100%;
   height: auto;
 }
+
+.card { box-shadow: 5px 10px 15px 0px #b4b4b4; }
