@@ -4,6 +4,7 @@
       <div class="card-body">
         <h4 class="card-title"><%= @category.name %></h4>
         <p class="card-text"><%= sanitize(@category.body) %></p>
+        
       </div>
       <div class="card-footer">
         <% if user_signed_in? && current_user.admin? %>
@@ -12,7 +13,30 @@
         <% else %>
           <%= link_to  "All Categories", categories_path, class: 'btn btn-outline-danger btn-sm' %>
         <% end %>
+        <span class="btn btn-primary-outlined float-right">
+          <%= pluralize(@posts.count, "post") %> Under <%= "#{@category.name}" %>
+        </span>
       </div>
     </div>
   </div>
 </div>
+
+<% @posts.each do |catpost| %>
+<div class="row pb-5">
+  <div class="col-md-8 offset-md-2">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title"><%= link_to catpost.title, post_path(catpost) %></h4>
+      </div>
+      <div class="card-footer">
+        <% if user_signed_in? && current_user.admin? %>
+          <%= link_to  "Edit", edit_post_path(catpost), class: 'btn btn-outline-primary btn-sm' %>
+          <%= link_to  "Cancle", categories_path, class: 'btn btn-outline-warning btn-sm' %>
+        <% else %>
+          <%= link_to  "All Categories", categories_path, class: 'btn btn-outline-danger btn-sm' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
