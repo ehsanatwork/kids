@@ -16,7 +16,9 @@
   <div class="col-md-4">
     <div class="card grbg1">
       <div class="card-header">
-        <h4 class="card-title mb-0"><a href="#" class="text-white"><%= fetcat.name %></a></h4>
+        <h4 class="card-title mb-0">
+          <%= link_to fetcat.name, category_path(fetcat), class: 'text-white' %>
+        </h4>
       </div>
       <ul class="list-group list-group-flush">
       <% fetcat.posts.last(3).each do |p| %>
