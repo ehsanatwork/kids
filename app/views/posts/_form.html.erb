@@ -52,6 +52,24 @@
           </div>
         </div>
       </div>
+
+      <div class="form-group row">
+        <div class="col-sm-10">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Featured</h3>
+            </div>
+            <div class="card-body">
+              <div class="custom-control custom-checkbox">
+                <%= f.check_box :featured, class: 'form-check-input' %>
+                <%= f.label :featured, class: 'form-check-label' %>
+                <%# <input type="checkbox" class="custom-control-input" id="customControlInline">
+                <label class="custom-control-label" for="customControlInline">Remember my preference</label> %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>
